@@ -231,7 +231,7 @@ return cart.reduce((a,b)=>a+b.p,0);
 function renderCart(){
 let html="";
 cart.forEach((p,i)=>{
-html+=<div>${p.n} $${p.p} <button onclick="remove(${i})">X</button></div>;
+html+=`<div>${p.n} $${p.p} <button onclick="remove(${i})">X</button></div>`;
 });
 document.getElementById("items").innerHTML=html;
 document.getElementById("total").innerText=total();
@@ -240,9 +240,9 @@ document.getElementById("total").innerText=total();
 function sendOrder(){
 let msg="Hola quiero comprar:%0A";
 cart.forEach(p=>{
-msg+=- ${p.n} $${p.p}%0A;
+msg+=`- ${p.n} $${p.p}%0A`;
 });
-msg+=%0A TOTAL: $${total()};
+msg+=`%0A TOTAL: $${total()}`;
 window.open("https://wa.me/5493425683418?text="+msg,"_blank");
 }
 
